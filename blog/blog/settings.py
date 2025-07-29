@@ -14,10 +14,13 @@ from pathlib import Path
 from django.urls import reverse_lazy
 from dotenv import load_dotenv
 
-load_dotenv()
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+
+load_dotenv(BASE_DIR / '.env')
+
 
 AUTH_USER_MODEL = 'usuarios.Usuario'
 LOGIN_URL = reverse_lazy('apps.usuarios:iniciar_sesion')
@@ -88,6 +91,7 @@ WSGI_APPLICATION = 'blog.wsgi.application'
 NAME_DB = os.getenv('NAME_DB')
 USER_DB = os.getenv('USER_DB')
 PASSWORD_DB = os.getenv('PASSWORD_DB')
+
 
 DATABASES = {
     "default": {
